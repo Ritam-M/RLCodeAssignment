@@ -37,7 +37,7 @@ Q-learning is a type of model-free, off-policy reinforcement learning algorithm.
 
 The Q-learning algorithm learns by updating its Q-values using the following update rule:
 
-$ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a\prime} Q(s\prime, a\prime) - Q(s, a)] $
+\[ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)] \] 
 
 Where:
 - \( s \) is the current state

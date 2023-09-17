@@ -28,3 +28,44 @@ The gridworld environment is defined as follows:
 - If an action would result in the agent leaving the grid, the agent remains in its current position.
 
 ---
+
+## Reinforcement Learning Algorithms
+
+### Q-learning
+
+Q-learning is a type of model-free, off-policy reinforcement learning algorithm. It seeks to learn the optimal action-selection policy by estimating how good a particular action is in a given state.
+
+The Q-learning algorithm learns by updating its Q-values using the following update rule:
+
+\[ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)] \]
+
+Where:
+- \( s \) is the current state
+- \( a \) is the chosen action
+- \( r \) is the received reward
+- \( s' \) is the new state
+- \( \alpha \) is the learning rate
+- \( \gamma \) is the discount factor
+
+In essence, Q-learning uses the maximum Q-value of the new state \( s' \) to update the Q-value of the current state \( s \). 
+
+---
+
+### SARSA 
+
+SARSA, which stands for **State-Action-Reward-State-Action**, is another model-free, on-policy reinforcement learning algorithm. Unlike Q-learning which is off-policy, SARSA is on-policy, meaning it takes into account the action chosen by the current policy to update its Q-values.
+
+The SARSA algorithm uses the following update rule:
+
+\[ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma Q(s', a') - Q(s, a)] \]
+
+Where:
+- \( s \) is the current state
+- \( a \) is the chosen action
+- \( r \) is the received reward
+- \( s' \) is the new state
+- \( a' \) is the action chosen in the new state following the current policy
+- \( \alpha \) is the learning rate
+- \( \gamma \) is the discount factor
+
+The major difference between SARSA and Q-learning is that SARSA uses the Q-value of the next state-action pair \( (s', a') \) (as per the policy) to update its Q-values, whereas Q-learning uses the maximum Q-value of the new state \( s' \), regardless of the action taken.
